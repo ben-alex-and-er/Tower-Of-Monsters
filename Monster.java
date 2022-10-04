@@ -6,9 +6,9 @@ public interface Monster {
 
     abstract void strike(Character enemy);
 
-    abstract void SyntaxError(Character enemy);
+    abstract void syntaxError(Character enemy);
 
-    abstract void NullPointerException();
+    abstract void nullPointerException();
 
-    abstract void ArrayIndexOutOfBoundException(Character enemy);
+    abstract void arrayIndexOutOfBoundException(Character enemy);
 }

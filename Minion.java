@@ -13,20 +13,20 @@ public class Minion extends Character implements Monster {
         int randomNumber = rand.nextInt(totalWeighting());
 
         if (randomNumber < SEWeighting) {
-            SyntaxError(enemy);
+            syntaxError(enemy);
             return;
         }
         randomNumber -= SEWeighting;
 
         if (randomNumber < NPEWeighting) {
-            NullPointerException();
+            nullPointerException();
             return;
         }
 
-        ArrayIndexOutOfBoundException(enemy);
+        arrayIndexOutOfBoundException(enemy);
     }
 
-    public void SyntaxError(Character enemy) {
+    public void syntaxError(Character enemy) {
         enemy.decreaseHP(((100 * this.getAttack()) / (100 + this.getDefence())));
         this.increaseXP(3);
         enemy.increaseXP(3);
@@ -41,12 +41,12 @@ public class Minion extends Character implements Monster {
 
     }
 
-    public void NullPointerException() {
+    public void nullPointerException() {
         increaseHP(getDefence());
         increaseXP(3);
     }
 
-    public void ArrayIndexOutOfBoundException(Character enemy) {
+    public void arrayIndexOutOfBoundException(Character enemy) {
         enemy.decreaseHP(2 * ((100 * this.getAttack()) / (100 + this.getDefence())));
         increaseXP(3);
         enemy.increaseXP(3);

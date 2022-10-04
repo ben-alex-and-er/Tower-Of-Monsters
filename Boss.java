@@ -15,32 +15,32 @@ public class Boss extends Character implements Monster {
         int randomNumber = rand.nextInt(totalWeighting());
 
         if (randomNumber < SEWeighting) {
-            SyntaxError(enemy);
+            syntaxError(enemy);
             return;
         }
         randomNumber -= SEWeighting;
 
         if (randomNumber < NPEWeighting) {
-            NullPointerException();
+            nullPointerException();
             return;
         }
         randomNumber -= NPEWeighting;
 
         if (randomNumber < AIOOBEWeighting) {
-            ArrayIndexOutOfBoundException(enemy);
+            arrayIndexOutOfBoundException(enemy);
             return;
         }
         randomNumber -= AIOOBEWeighting;
 
         if (randomNumber < NTWeighting) {
-            NoneTermination();
+            noneTermination();
             return;
         }
 
-        ConcurrentModificationException(enemy);
+        concurrentModificationException(enemy);
     }
 
-    public void SyntaxError(Character enemy) {
+    public void syntaxError(Character enemy) {
         enemy.decreaseHP(((100 * this.getAttack()) / (100 + this.getDefence())));
         increaseXP(3);
         enemy.increaseXP(3);
@@ -54,12 +54,12 @@ public class Boss extends Character implements Monster {
             increaseXP(4);
     }
 
-    public void NullPointerException() {
+    public void nullPointerException() {
         increaseHP(this.getDefence());
         increaseXP(3);
     }
 
-    public void ArrayIndexOutOfBoundException(Character enemy) {
+    public void arrayIndexOutOfBoundException(Character enemy) {
         enemy.decreaseHP(2 * ((100 * this.getAttack()) / (100 + this.getDefence())));
         this.increaseXP(3);
         enemy.increaseXP(3);
@@ -74,7 +74,7 @@ public class Boss extends Character implements Monster {
     }
 
     // Revives all dead teammates
-    private void NoneTermination() {
+    private void noneTermination() {
         for (Character character : getTeam().getMembers()) {
             if (character.isDead())
                 character.increaseHP(character.getMaxHP());
@@ -82,7 +82,7 @@ public class Boss extends Character implements Monster {
         increaseXP(3);
     }
 
-    private void ConcurrentModificationException(Character enemy) {
+    private void concurrentModificationException(Character enemy) {
         for (Character oneEnemy : enemy.getTeam().getMembers()) {
             if (!oneEnemy.isDead()) {
                 oneEnemy.decreaseHP((100 * getAttack()) / (100 + oneEnemy.getDefence()));
